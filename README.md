@@ -42,8 +42,6 @@ export default {
 
 ## 4. Import the `Bootstrap` and `Bootstrap-Vue` code into a global stylesheet. 
 
-Add the global stylesheet into `nuxt.config.js`
-
 Create a file called `global.scss` in your `assets/styles` folder.
 
 In `assets/styles/global.scss`:
@@ -53,6 +51,7 @@ In `assets/styles/global.scss`:
 @import '~bootstrap-vue/src/index.scss';
 ```
 
+Add the global stylesheet into `nuxt.config.js`
 In `nuxt.config.js`:
 
 ```javascript
@@ -65,7 +64,7 @@ export default {
 
 Now we have manually imported `Bootstrap` and `Bootstrap-Vue` into our project and made the styles available globally. If we would import that code in every component, we would also compile the whole `Bootstrap` code again and again, which would result in a heavy assets download for the browser and a bad user experience.
 
-WIth this configuration though, we're not able to use `Bootstrap` variables and mixins in our components, so let's see how to fix that:
+With this configuration though, we're not able to use `Bootstrap` variables and mixins in our components, so let's see how to fix that:
 
 ## 5. Import, use and overwrite `Bootstrap` variables and register your own scss ressources for usage in your components:
 
@@ -126,7 +125,7 @@ export default {
 }
 ```
 
-Make sure to declare `assets/styles/_variables.scss` **before** you declare `bootstrap/scss/_functions.scss`. This will enable you to overwrite `Bootstrap` scss variables.
+Make sure to declare `assets/styles/_variables.scss` **before** you declare `bootstrap/scss/_variables.scss`. This will enable you to overwrite `Bootstrap` scss variables.
 
 Now that you've included your own scss variables and `Bootstrap` scss ressources in the `styleRessources` module, you made them available globally, which means that they're automatically also included in `assets/styles/global.scss`.
 
