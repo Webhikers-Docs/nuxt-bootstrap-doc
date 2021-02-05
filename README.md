@@ -4,14 +4,14 @@ It's very important to get this done right, otherwise you end up importing the b
 
 So, here's how we do it:
 
-##1. Install Bootstrap Vue
+## 1. Install Bootstrap Vue
 
 ```bash
 # With npm
 npm install bootstrap-vue --save
 ```
 
-##2. Add the bootstrap vue nuxt mdoule.
+## 2. Add the bootstrap vue nuxt mdoule.
 
 In `nuxt.config.js`:
 
@@ -23,7 +23,7 @@ export default {
 }
 ```
 
-##3. Exclude compiled Bootstrap and Bootstrap Vue Stylesheets.
+## 3. Exclude compiled Bootstrap and Bootstrap Vue Stylesheets.
 
 We want to import the bootstrap and bootstrap vue scss files into our project manually, so we can use and overwrite their scss variables and use their mixins.
 Since we are importing the core files manually we **MUST** exclude the compiled source files of bootstrap and bootstrap vue.
@@ -40,7 +40,7 @@ export default {
 }
 ```
 
-##4. Import the bootstrap and bootstrap vue code into a global stylesheet. Add the global stylesheet into `nuxt.config.js`
+## 4. Import the bootstrap and bootstrap vue code into a global stylesheet. Add the global stylesheet into `nuxt.config.js`
 
 Create a file called `global.scss` in your `assets/styles` folder.
 
@@ -65,7 +65,7 @@ Now we have manually imported Bootstrap and Bootstrap Vue into our project and m
 
 WIth this configuration though, we're not able to use Bootstrap variables and mixins in our components, so let's see how to fix that:
 
-##5. Import, use and overwrite bootstrap variables and register your own scss ressources for usage in your components:
+## 5. Import, use and overwrite bootstrap variables and register your own scss ressources for usage in your components:
 
 We need to make Bootstrap Variables and your own scss ressources available globally in the whole project. We don't want to import them again and again in every component, so we'll use a very handy nuxt module for that task:
 
@@ -128,7 +128,7 @@ Make sure to declare `assets/styles/_variables.scss` **before** you declare `boo
 
 Now that you've included your own scss variables and bootstrap scss ressources in the `styleRessources` module, you made them available globally, which means that they're automatically also included in `assets/styles/global.scss`.
 
-##6. Congrats, you're done!! :D
+## 6. Congrats, you're done!! :D
 
 Now you can simply use scss variables and mixins in your vue components, without extra import statements and most importantly: You are preventing your app from importing the bootstrap core several times!
 
