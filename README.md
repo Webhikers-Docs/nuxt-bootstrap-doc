@@ -40,7 +40,13 @@ export default {
 }
 ```
 
-## 4. Import the `Bootstrap` and `Bootstrap-Vue` code into a global stylesheet. 
+## 4. Install `sass` and `sass-loader`
+
+```bash
+npm install --save-dev sass sass-loader@10 fibers
+```
+
+## 5. Import the `Bootstrap` and `Bootstrap-Vue` code into a global stylesheet. 
 
 Create a file called `global.scss` in your `assets/styles` folder.
 
@@ -66,7 +72,7 @@ Now we have manually imported `Bootstrap` and `Bootstrap-Vue` into our project a
 
 With this configuration though, we're not able to use `Bootstrap` variables and mixins in our components, so let's see how to fix that:
 
-## 5. Import, use and overwrite `Bootstrap` variables and register your own scss ressources for usage in your components:
+## 6. Import, use and overwrite `Bootstrap` variables and register your own scss ressources for usage in your components:
 
 We need to make `Bootstrap` variables and your own scss ressources available globally in the whole project. We don't want to import them again and again in every component, so we'll use a very handy nuxt module for that task:
 
@@ -129,7 +135,7 @@ Make sure to declare `assets/styles/_variables.scss` **before** you declare `boo
 
 Now that you've included your own scss variables and `Bootstrap` scss ressources in the `styleRessources` module, you made them available globally, which means that they're automatically also included in `assets/styles/global.scss`.
 
-## 6. Congrats, you're done!! :D
+## 7. Congrats, you're done!! :D
 
 Now you can simply use scss variables and mixins in your vue components, without extra import statements and most importantly: You are preventing your app from importing the `Bootstrap` core several times!
 
